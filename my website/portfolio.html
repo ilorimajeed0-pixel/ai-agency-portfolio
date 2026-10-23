@@ -1,0 +1,1409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio & Case Studies | Ilori Majeed — AI × Automation</title>
+  <meta name="description" content="Portfolio and case studies by Ilori Majeed: Retell AI voice agents, n8n workflows, and Make.com scenarios for businesses across industries — with transparent capability disclosure." />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            obsidian: '#090316',
+            violet: {
+              DEFAULT: '#8B5CF6',
+              50: '#F5F3FF',
+              100: '#EDE9FE',
+              200: '#DDD6FE',
+              300: '#C4B5FD',
+              400: '#A78BFA',
+              500: '#8B5CF6',
+              600: '#7C3AED',
+              700: '#6D28D9',
+              800: '#5B21B6',
+              900: '#4C1D95',
+            },
+            lavender: '#DDD6FE',
+            ethereal: '#F8F7FC',
+          },
+          fontFamily: {
+            inter: ['Inter', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          backdropBlur: {
+            xs: '2px',
+          },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    /* ─── Base ───────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #090316;
+      color: #F8F7FC;
+      overflow-x: hidden;
+    }
+
+    /* ─── Glassmorphism ──────────────────────────────────────── */
+    .glass {
+      background: rgba(139,92,246,0.06);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(139,92,246,0.18);
+    }
+    .glass-dark {
+      background: rgba(9,3,22,0.7);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(139,92,246,0.2);
+    }
+    .glass-navbar {
+      background: rgba(9,3,22,0.82);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border-bottom: 1px solid rgba(139,92,246,0.22);
+    }
+
+    /* ─── Gradient Text ──────────────────────────────────────── */
+    .gradient-text {
+      background: linear-gradient(135deg, #F8F7FC 0%, #DDD6FE 40%, #8B5CF6 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .gradient-text-violet {
+      background: linear-gradient(135deg, #8B5CF6 0%, #C4B5FD 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* ─── Orbs ───────────────────────────────────────────────── */
+    .orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      pointer-events: none;
+      animation: orb-float 8s ease-in-out infinite;
+    }
+    .orb-1 { width: 420px; height: 420px; background: rgba(139,92,246,0.15); top: -120px; right: -80px; animation-delay: 0s; }
+    .orb-2 { width: 280px; height: 280px; background: rgba(196,181,253,0.10); top: 100px; left: -60px; animation-delay: 3s; }
+    .orb-3 { width: 200px; height: 200px; background: rgba(139,92,246,0.12); bottom: 0; right: 200px; animation-delay: 5s; }
+
+    @keyframes orb-float {
+      0%, 100% { transform: translateY(0px) scale(1); }
+      50%       { transform: translateY(-28px) scale(1.04); }
+    }
+
+    /* ─── Custom Animations ──────────────────────────────────── */
+    @keyframes pulse-slow {
+      0%, 100% { opacity: 1; }
+      50%       { opacity: 0.55; }
+    }
+    .pulse-slow { animation: pulse-slow 3s ease-in-out infinite; }
+
+    @keyframes fade-up {
+      from { opacity: 0; transform: translateY(32px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .fade-up { animation: fade-up 0.7s ease forwards; }
+
+    @keyframes slide-in-left {
+      from { opacity: 0; transform: translateX(-24px); }
+      to   { opacity: 1; transform: translateX(0); }
+    }
+
+    @keyframes flow-arrow {
+      0%, 100% { opacity: 0.4; transform: scaleX(1); }
+      50%       { opacity: 1; transform: scaleX(1.08); }
+    }
+
+    /* ─── Disclosure Banner ──────────────────────────────────── */
+    .disclosure-banner {
+      background: linear-gradient(135deg, rgba(245,158,11,0.12), rgba(234,88,12,0.08));
+      border: 1px solid rgba(245,158,11,0.4);
+      border-left: 4px solid #F59E0B;
+    }
+
+    /* ─── Nav ────────────────────────────────────────────────── */
+    nav a { transition: color 0.2s; }
+    nav a:hover { color: #DDD6FE; }
+    .nav-active { color: #8B5CF6 !important; }
+
+    /* ─── Section pill label ─────────────────────────────────── */
+    .section-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(139,92,246,0.12);
+      border: 1px solid rgba(139,92,246,0.3);
+      border-radius: 999px;
+      padding: 4px 14px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      color: #C4B5FD;
+      letter-spacing: 0.08em;
+    }
+
+    /* ─── Project badge ──────────────────────────────────────── */
+    .project-badge {
+      display: inline-flex;
+      align-items: center;
+      background: rgba(139,92,246,0.18);
+      border: 1px solid rgba(139,92,246,0.35);
+      border-radius: 6px;
+      padding: 3px 10px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: #C4B5FD;
+      letter-spacing: 0.04em;
+    }
+
+    /* ─── Capability cards ───────────────────────────────────── */
+    .cap-confirmed {
+      border: 1px solid rgba(34,197,94,0.3);
+      background: rgba(34,197,94,0.04);
+    }
+    .cap-roadmap {
+      border: 1px solid rgba(245,158,11,0.3);
+      background: rgba(245,158,11,0.04);
+    }
+
+    /* ─── Chat transcript ────────────────────────────────────── */
+    .chat-bubble-agent {
+      background: rgba(139,92,246,0.18);
+      border: 1px solid rgba(139,92,246,0.3);
+      border-radius: 0 16px 16px 16px;
+    }
+    .chat-bubble-caller {
+      background: rgba(75,85,99,0.25);
+      border: 1px solid rgba(107,114,128,0.25);
+      border-radius: 16px 0 16px 16px;
+    }
+
+    /* ─── Workflow Pipeline ──────────────────────────────────── */
+    .pipeline-step {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      flex: 1;
+      min-width: 0;
+    }
+    .pipeline-icon-wrap {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+      position: relative;
+      z-index: 1;
+      flex-shrink: 0;
+    }
+    .pipeline-connector {
+      position: absolute;
+      top: 30px;
+      right: -50%;
+      width: 100%;
+      height: 2px;
+      z-index: 0;
+    }
+    .pipeline-connector-inner {
+      height: 2px;
+      background: linear-gradient(90deg, rgba(139,92,246,0.8), rgba(139,92,246,0.2));
+      position: relative;
+      animation: flow-arrow 2s ease-in-out infinite;
+    }
+    .pipeline-connector-inner::after {
+      content: '';
+      position: absolute;
+      right: -6px;
+      top: -5px;
+      border-left: 10px solid rgba(139,92,246,0.8);
+      border-top: 6px solid transparent;
+      border-bottom: 6px solid transparent;
+    }
+
+    /* Mobile pipeline (vertical) */
+    @media (max-width: 768px) {
+      .pipeline-horizontal { display: none !important; }
+      .pipeline-vertical   { display: flex !important; }
+    }
+    @media (min-width: 769px) {
+      .pipeline-horizontal { display: flex !important; }
+      .pipeline-vertical   { display: none !important; }
+    }
+
+    .pipeline-vertical-step {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      position: relative;
+    }
+    .pipeline-vertical-step:not(:last-child)::before {
+      content: '';
+      position: absolute;
+      left: 30px;
+      top: 60px;
+      width: 2px;
+      height: calc(100% + 16px);
+      background: linear-gradient(180deg, rgba(139,92,246,0.6), rgba(139,92,246,0.1));
+    }
+
+    /* ─── Capability Table ───────────────────────────────────── */
+    .cap-table th {
+      background: rgba(139,92,246,0.25);
+      color: #DDD6FE;
+      font-weight: 700;
+      text-align: left;
+      padding: 14px 18px;
+      font-size: 0.85rem;
+      letter-spacing: 0.04em;
+    }
+    .cap-table td {
+      padding: 13px 18px;
+      font-size: 0.88rem;
+      border-bottom: 1px solid rgba(139,92,246,0.1);
+    }
+    .cap-table tr:nth-child(even) td { background: rgba(139,92,246,0.04); }
+    .cap-table tr:hover td { background: rgba(139,92,246,0.08); transition: background 0.2s; }
+    .cap-table .cell-yes  { color: #4ADE80; font-weight: 600; }
+    .cap-table .cell-no   { color: #6B7280; }
+    .cap-table .cell-road { color: #FCD34D; font-weight: 600; }
+    .cap-table .cell-ltd  { color: #FCD34D; }
+
+    /* ─── CTA Button ─────────────────────────────────────────── */
+    .btn-primary {
+      background: linear-gradient(135deg, #8B5CF6, #6D28D9);
+      color: #fff;
+      border: 1px solid rgba(196,181,253,0.25);
+      transition: all 0.25s;
+    }
+    .btn-primary:hover {
+      background: linear-gradient(135deg, #A78BFA, #7C3AED);
+      box-shadow: 0 0 24px rgba(139,92,246,0.5);
+      transform: translateY(-2px);
+    }
+    .btn-outline {
+      background: transparent;
+      color: #DDD6FE;
+      border: 1px solid rgba(139,92,246,0.4);
+      transition: all 0.25s;
+    }
+    .btn-outline:hover {
+      background: rgba(139,92,246,0.12);
+      border-color: #8B5CF6;
+      transform: translateY(-2px);
+    }
+
+    /* ─── Scrollbar ──────────────────────────────────────────── */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: #090316; }
+    ::-webkit-scrollbar-thumb { background: rgba(139,92,246,0.4); border-radius: 3px; }
+
+    /* ─── Tech Stack Pills ───────────────────────────────────── */
+    .tech-pill {
+      background: rgba(139,92,246,0.12);
+      border: 1px solid rgba(139,92,246,0.25);
+      border-radius: 999px;
+      padding: 4px 12px;
+      font-size: 0.75rem;
+      color: #C4B5FD;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    /* ─── App Badge ──────────────────────────────────────────── */
+    .app-badge {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 8px;
+      padding: 6px 14px;
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: #DDD6FE;
+    }
+
+    /* ─── Glow ───────────────────────────────────────────────── */
+    .glow-violet { box-shadow: 0 0 30px rgba(139,92,246,0.2); }
+    .glow-green  { box-shadow: 0 0 20px rgba(34,197,94,0.15); }
+    .glow-amber  { box-shadow: 0 0 20px rgba(245,158,11,0.15); }
+
+    /* ─── Hamburger ──────────────────────────────────────────── */
+    .hamburger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: #DDD6FE;
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    #mobile-menu {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s cubic-bezier(0.4,0,0.2,1);
+    }
+    #mobile-menu.open { max-height: 500px; }
+
+    /* Keep deep-linked projects clear of the fixed navbar */
+    section[id^="project-"] { scroll-margin-top: 96px; }
+  </style>
+</head>
+<body class="font-inter">
+
+<!-- ═══════════════════════════════════════════════════════════
+     NAVBAR
+═══════════════════════════════════════════════════════════════ -->
+<nav class="glass-navbar fixed top-0 left-0 right-0 z-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+
+      <!-- Logo -->
+      <a href="index.html" class="flex flex-col leading-tight group">
+        <span class="text-lg font-black text-ethereal tracking-wide group-hover:text-lavender transition-colors" style="color:#F8F7FC;">ILORI MAJEED</span>
+        <span class="text-xs font-mono" style="color:#8B5CF6;letter-spacing:0.12em;">AI × Automation</span>
+      </a>
+
+      <!-- Desktop Links -->
+      <div class="hidden md:flex items-center gap-6">
+        <a href="index.html"    class="text-sm font-medium text-gray-400">Home</a>
+        <a href="services.html" class="text-sm font-medium text-gray-400">Services</a>
+        <a href="portfolio.html" class="text-sm font-semibold nav-active">Portfolio</a>
+        <a href="about.html"   class="text-sm font-medium text-gray-400">About</a>
+        <a href="contact.html" class="text-sm font-medium text-gray-400">Contact</a>
+        <a href="contact.html" class="btn-primary px-5 py-2 rounded-lg text-sm font-semibold">Inquire Now</a>
+      </div>
+
+      <!-- Hamburger -->
+      <button id="hamburger-btn" class="hamburger md:hidden flex flex-col gap-[5px] p-2" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="md:hidden glass-dark border-t border-violet-900/30">
+    <div class="px-6 py-5 flex flex-col gap-4">
+      <a href="index.html"    class="text-sm font-medium text-gray-400 hover:text-lavender transition-colors py-1">Home</a>
+      <a href="services.html" class="text-sm font-medium text-gray-400 hover:text-lavender transition-colors py-1">Services</a>
+      <a href="portfolio.html" class="text-sm font-semibold py-1" style="color:#8B5CF6;">Portfolio</a>
+      <a href="about.html"   class="text-sm font-medium text-gray-400 hover:text-lavender transition-colors py-1">About</a>
+      <a href="contact.html" class="text-sm font-medium text-gray-400 hover:text-lavender transition-colors py-1">Contact</a>
+      <a href="contact.html" class="btn-primary px-5 py-2 rounded-lg text-sm font-semibold text-center mt-2">Inquire Now</a>
+    </div>
+  </div>
+</nav>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     HERO
+═══════════════════════════════════════════════════════════════ -->
+<section class="relative pt-36 pb-20 overflow-hidden">
+  <!-- Orbs -->
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+
+  <!-- Noise texture overlay -->
+  <div class="absolute inset-0 opacity-[0.03]" style="background-image:url('data:image/svg+xml,%3Csvg viewBox=%220 0 256 256%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noise%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.9%22 numOctaves=%224%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noise)%22/%3E%3C/svg%3E');"></div>
+
+  <div class="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <!-- Eyebrow badge -->
+    <div class="inline-flex items-center gap-2 mb-6 px-5 py-2 rounded-full" style="background:rgba(139,92,246,0.12);border:1px solid rgba(139,92,246,0.3);">
+      <span class="font-mono text-xs tracking-widest" style="color:#C4B5FD;">[PORTFOLIO &amp; CASE STUDIES]</span>
+    </div>
+
+    <!-- H1 -->
+    <h1 class="text-5xl sm:text-6xl lg:text-7xl font-black mb-6 leading-tight gradient-text">
+      Demonstrated<br class="hidden sm:block" /> Capabilities
+    </h1>
+
+    <!-- Subtitle -->
+    <p class="text-lg sm:text-xl max-w-2xl mx-auto leading-relaxed" style="color:#9CA3AF;">
+      AI voice agents and automation systems for real-world business —<br class="hidden sm:block" />
+      with transparent capability disclosure.
+    </p>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     DISCLOSURE BANNER
+═══════════════════════════════════════════════════════════════ -->
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
+  <div class="disclosure-banner rounded-xl p-5 flex items-start gap-4">
+    <span class="text-2xl flex-shrink-0 mt-0.5">⚠</span>
+    <div>
+      <p class="text-sm font-semibold mb-1" style="color:#FBBF24;">Transparency Notice</p>
+      <p class="text-sm leading-relaxed" style="color:#FDE68A;">
+        Case studies below represent development work and conceptual implementations. Capability limitations and roadmap items are clearly marked. No fabricated metrics, testimonials, or unverified performance claims are included.
+      </p>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     PROJECT 01 — RETELL AI VOICE AGENT
+═══════════════════════════════════════════════════════════════ -->
+<section id="project-01" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-28">
+
+  <!-- Section Header -->
+  <div class="flex flex-wrap items-center gap-4 mb-10">
+    <div class="section-pill">Project 01</div>
+    <h2 class="text-3xl sm:text-4xl font-black gradient-text">Inbound Call Automation Agent</h2>
+    <span class="project-badge">Retell AI</span>
+  </div>
+
+  <!-- Two-Column Layout -->
+  <div class="grid lg:grid-cols-2 gap-6 mb-10">
+
+    <!-- LEFT: Project Overview -->
+    <div class="glass-dark rounded-2xl p-7 glow-violet">
+      <h3 class="text-sm font-mono font-semibold mb-5 tracking-widest" style="color:#8B5CF6;">// PROJECT OVERVIEW</h3>
+
+      <div class="grid grid-cols-2 gap-y-4 mb-6">
+        <div>
+          <p class="text-xs uppercase tracking-widest mb-1" style="color:#6B7280;">Project Type</p>
+          <p class="text-sm font-semibold" style="color:#DDD6FE;">AI Voice Agent</p>
+        </div>
+        <div>
+          <p class="text-xs uppercase tracking-widest mb-1" style="color:#6B7280;">Platform</p>
+          <p class="text-sm font-semibold" style="color:#DDD6FE;">Retell AI</p>
+        </div>
+        <div>
+          <p class="text-xs uppercase tracking-widest mb-1" style="color:#6B7280;">Demo Vertical</p>
+          <p class="text-sm font-semibold" style="color:#DDD6FE;">Dental Practice</p>
+        </div>
+        <div>
+          <p class="text-xs uppercase tracking-widest mb-1" style="color:#6B7280;">Scope</p>
+          <p class="text-sm font-semibold" style="color:#DDD6FE;">Inbound &amp; Outbound Calling</p>
+        </div>
+      </div>
+
+      <!-- Divider -->
+      <div class="border-t mb-6" style="border-color:rgba(139,92,246,0.15);"></div>
+
+      <p class="text-sm leading-7" style="color:#9CA3AF;">
+        An AI voice agent developed using Retell AI infrastructure to handle inbound inquiries and outbound calling. The demo below is configured for a dental practice; the same call flow — FAQ answering, routing, and human handoff — adapts to real estate, home services, e-commerce, and other businesses.
+      </p>
+
+      <!-- Visual accent: voice waveform bars -->
+      <div class="mt-8 flex items-end gap-1 h-12">
+        <div class="text-xs font-mono mb-1 mr-3 self-center" style="color:#8B5CF6;">VOICE</div>
+        <div id="waveform-bars" class="flex items-end gap-0.5 h-full flex-1">
+          <!-- JS will generate bars -->
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT: Capability Cards -->
+    <div class="flex flex-col gap-4">
+
+      <!-- Confirmed Capabilities -->
+      <div class="cap-confirmed rounded-2xl p-6 glow-green flex-1">
+        <div class="flex items-center gap-2 mb-4">
+          <span class="text-lg">✅</span>
+          <h3 class="text-sm font-bold tracking-wide" style="color:#4ADE80;">Confirmed Capabilities</h3>
+        </div>
+        <ul class="space-y-2.5">
+          <li class="flex items-start gap-2.5 text-sm" style="color:#D1FAE5;">
+            <span class="text-green-400 mt-0.5 flex-shrink-0">✓</span> Inbound call reception and handling
+          </li>
+          <li class="flex items-start gap-2.5 text-sm" style="color:#D1FAE5;">
+            <span class="text-green-400 mt-0.5 flex-shrink-0">✓</span> Caller FAQ answering (opening hours, location, services)
+          </li>
+          <li class="flex items-start gap-2.5 text-sm" style="color:#D1FAE5;">
+            <span class="text-green-400 mt-0.5 flex-shrink-0">✓</span> Dynamic call routing to human agents
+          </li>
+          <li class="flex items-start gap-2.5 text-sm" style="color:#D1FAE5;">
+            <span class="text-green-400 mt-0.5 flex-shrink-0">✓</span> Outbound calling campaigns
+          </li>
+          <li class="flex items-start gap-2.5 text-sm" style="color:#D1FAE5;">
+            <span class="text-green-400 mt-0.5 flex-shrink-0">✓</span> Multi-turn conversational flows
+          </li>
+          <li class="flex items-start gap-2.5 text-sm" style="color:#D1FAE5;">
+            <span class="text-green-400 mt-0.5 flex-shrink-0">✓</span> Call session logging
+          </li>
+          <li class="flex items-start gap-2.5 text-sm" style="color:#D1FAE5;">
+            <span class="text-green-400 mt-0.5 flex-shrink-0">✓</span> 24/7 autonomous operation
+          </li>
+        </ul>
+      </div>
+
+      <!-- Roadmap / Unconfirmed -->
+      <div class="cap-roadmap rounded-2xl p-6 glow-amber">
+        <div class="flex items-center gap-2 mb-1">
+          <span class="text-lg">⚠</span>
+          <h3 class="text-sm font-bold tracking-wide" style="color:#FBBF24;">Roadmap / Unconfirmed Capabilities</h3>
+        </div>
+        <p class="text-xs mb-4" style="color:#92400E;">These features are NOT yet live or confirmed. Listed for planning purposes only.</p>
+        <ul class="space-y-2.5">
+          <li class="flex items-start gap-2.5 text-sm" style="color:#FDE68A;">
+            <span class="text-yellow-400 mt-0.5 flex-shrink-0">⚠️</span> Direct appointment booking via voice
+          </li>
+          <li class="flex items-start gap-2.5 text-sm" style="color:#FDE68A;">
+            <span class="text-yellow-400 mt-0.5 flex-shrink-0">⚠️</span> Live appointment rescheduling
+          </li>
+          <li class="flex items-start gap-2.5 text-sm" style="color:#FDE68A;">
+            <span class="text-yellow-400 mt-0.5 flex-shrink-0">⚠</span> Real-time EHR/PMS calendar integration
+          </li>
+          <li class="flex items-start gap-2.5 text-sm" style="color:#FDE68A;">
+            <span class="text-yellow-400 mt-0.5 flex-shrink-0">⚠</span> Automated SMS follow-up after call
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Simulated Call Flow -->
+  <div class="glass-dark rounded-2xl p-7 mb-6">
+    <!-- Header -->
+    <div class="flex flex-wrap items-center justify-between gap-4 mb-6">
+      <div>
+        <h3 class="text-xl font-bold" style="color:#DDD6FE;">Simulated Call Flow</h3>
+        <p class="text-sm" style="color:#6B7280;">Demo Transcript</p>
+      </div>
+      <div class="flex items-center gap-2 px-4 py-2 rounded-full" style="background:rgba(245,158,11,0.1);border:1px solid rgba(245,158,11,0.3);">
+        <div class="w-2 h-2 rounded-full bg-yellow-400 pulse-slow"></div>
+        <span class="text-xs font-mono" style="color:#FBBF24;">[SIMULATION — NOT A LIVE RECORDING]</span>
+      </div>
+    </div>
+
+    <!-- Chat Transcript -->
+    <div class="space-y-4 mb-8 max-w-2xl">
+
+      <!-- Agent turn 1 -->
+      <div class="flex items-start gap-3">
+        <div class="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0 text-base" style="background:rgba(139,92,246,0.25);border:1px solid rgba(139,92,246,0.4);">🤖</div>
+        <div class="flex-1 max-w-sm">
+          <p class="text-xs font-mono mb-1.5" style="color:#8B5CF6;">AGENT · 00:00:00</p>
+          <div class="chat-bubble-agent p-4">
+            <p class="text-sm leading-relaxed" style="color:#DDD6FE;">Thank you for calling Bright Smile Dental. I'm the virtual assistant. How can I help you today?</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Caller turn 1 -->
+      <div class="flex items-start gap-3 justify-end">
+        <div class="flex-1 max-w-sm flex flex-col items-end">
+          <p class="text-xs font-mono mb-1.5" style="color:#9CA3AF;">CALLER · 00:00:04</p>
+          <div class="chat-bubble-caller p-4">
+            <p class="text-sm leading-relaxed" style="color:#E5E7EB;">Hi, what are your opening hours?</p>
+          </div>
+        </div>
+        <div class="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0 text-base" style="background:rgba(75,85,99,0.25);border:1px solid rgba(107,114,128,0.3);">👤</div>
+      </div>
+
+      <!-- Agent turn 2 -->
+      <div class="flex items-start gap-3">
+        <div class="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0 text-base" style="background:rgba(139,92,246,0.25);border:1px solid rgba(139,92,246,0.4);">🤖</div>
+        <div class="flex-1 max-w-sm">
+          <p class="text-xs font-mono mb-1.5" style="color:#8B5CF6;">AGENT · 00:00:04.156</p>
+          <div class="chat-bubble-agent p-4">
+            <p class="text-sm leading-relaxed" style="color:#DDD6FE;">Our clinic is open Monday to Friday, 8AM to 6PM, and Saturday 9AM to 1PM. Is there anything else I can help you with?</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Caller turn 2 -->
+      <div class="flex items-start gap-3 justify-end">
+        <div class="flex-1 max-w-sm flex flex-col items-end">
+          <p class="text-xs font-mono mb-1.5" style="color:#9CA3AF;">CALLER · 00:00:10</p>
+          <div class="chat-bubble-caller p-4">
+            <p class="text-sm leading-relaxed" style="color:#E5E7EB;">Great, thanks. Can I speak to someone about a new patient consultation?</p>
+          </div>
+        </div>
+        <div class="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0 text-base" style="background:rgba(75,85,99,0.25);border:1px solid rgba(107,114,128,0.3);">👤</div>
+      </div>
+
+      <!-- Agent turn 3 -->
+      <div class="flex items-start gap-3">
+        <div class="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0 text-base" style="background:rgba(139,92,246,0.25);border:1px solid rgba(139,92,246,0.4);">🤖</div>
+        <div class="flex-1 max-w-sm">
+          <p class="text-xs font-mono mb-1.5" style="color:#8B5CF6;">AGENT · 00:00:10.142</p>
+          <div class="chat-bubble-agent p-4">
+            <p class="text-sm leading-relaxed" style="color:#DDD6FE;">I'll connect you to our reception team right away. Please hold for a moment.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Status message -->
+      <div class="flex items-center gap-3 ml-12">
+        <div class="h-px flex-1" style="background:rgba(34,197,94,0.2);"></div>
+        <span class="text-xs font-mono px-3 py-1 rounded-full" style="color:#4ADE80;background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.2);">🔗 Routing to human agent...</span>
+        <div class="h-px flex-1" style="background:rgba(34,197,94,0.2);"></div>
+      </div>
+
+    </div>
+
+    <!-- Latency Log -->
+    <div class="rounded-xl p-5 font-mono text-xs leading-7" style="background:#050211;border:1px solid rgba(139,92,246,0.15);">
+      <p class="mb-3 text-xs font-semibold tracking-widest" style="color:#8B5CF6;">[LATENCY LOG]</p>
+      <p style="color:#4ADE80;">&gt; Call initiated: <span style="color:#DDD6FE;">00:00:00</span></p>
+      <p style="color:#4ADE80;">&gt; Agent response 1: <span style="color:#DDD6FE;">142ms</span></p>
+      <p style="color:#4ADE80;">&gt; Agent response 2: <span style="color:#DDD6FE;">156ms</span></p>
+      <p style="color:#4ADE80;">&gt; Call routing triggered: <span style="color:#DDD6FE;">00:00:23</span></p>
+      <p style="color:#FBBF24;">&gt; Status: <span class="font-bold" style="color:#4ADE80;">CONNECTED TO HUMAN AGENT</span></p>
+    </div>
+    <p class="text-xs mt-3" style="color:#6B7280;">* Typical response latency target: sub-180ms. Actual performance varies by network and configuration.</p>
+  </div>
+
+  <!-- Tech Stack -->
+  <div class="flex flex-wrap items-center gap-2">
+    <span class="text-xs font-mono mr-2" style="color:#6B7280;">STACK:</span>
+    <span class="tech-pill">Retell AI</span>
+    <span class="tech-pill">Voice AI</span>
+    <span class="tech-pill">NLP</span>
+    <span class="tech-pill">WebRTC</span>
+  </div>
+
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     SECTION DIVIDER
+═══════════════════════════════════════════════════════════════ -->
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-28">
+  <div class="h-px" style="background:linear-gradient(90deg,transparent,rgba(139,92,246,0.4),transparent);"></div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     PROJECT 02 — n8n WORKFLOW AUTOMATION
+═══════════════════════════════════════════════════════════════ -->
+<section id="project-02" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-28">
+
+  <!-- Section Header -->
+  <div class="flex flex-wrap items-center gap-4 mb-6">
+    <div class="section-pill">Project 02</div>
+    <h2 class="text-3xl sm:text-4xl font-black gradient-text">Intelligent Lead Intake Pipeline</h2>
+    <span class="project-badge" style="background:rgba(59,130,246,0.15);border-color:rgba(59,130,246,0.3);color:#93C5FD;">n8n</span>
+  </div>
+
+  <p class="text-base mb-12 max-w-3xl leading-relaxed" style="color:#9CA3AF;">
+    A multi-step automated workflow built in n8n that processes incoming customer inquiries through validation, routing, CRM updates, and team notifications — without manual intervention. The demo routes by healthcare inquiry type; the router branches can be any categories a business needs.
+  </p>
+
+  <!-- Pipeline Visual (Horizontal - Desktop) -->
+  <div class="glass-dark rounded-2xl p-8 mb-8 overflow-hidden">
+    <h3 class="text-sm font-mono font-semibold mb-8 tracking-widest" style="color:#8B5CF6;">// WORKFLOW PIPELINE</h3>
+
+    <!-- HORIZONTAL -->
+    <div class="pipeline-horizontal flex items-start gap-0 relative overflow-x-auto pb-4">
+
+      <!-- Step 1: Trigger -->
+      <div class="pipeline-step">
+        <div class="relative w-full flex justify-center">
+          <div class="pipeline-icon-wrap" style="background:rgba(139,92,246,0.25);border:2px solid rgba(139,92,246,0.6);box-shadow:0 0 20px rgba(139,92,246,0.3);">⚡</div>
+          <!-- connector arrow -->
+          <div style="position:absolute;top:30px;left:calc(50% + 30px);right:0;height:2px;background:linear-gradient(90deg,rgba(139,92,246,0.8),rgba(139,92,246,0.2));z-index:0;">
+            <div style="position:absolute;right:-1px;top:-5px;border-left:10px solid rgba(139,92,246,0.7);border-top:6px solid transparent;border-bottom:6px solid transparent;"></div>
+          </div>
+        </div>
+        <p class="text-xs font-bold mt-1 px-2" style="color:#C4B5FD;">Webhook Trigger</p>
+        <p class="text-xs mt-1 px-2" style="color:#6B7280;">Form submission<br/>received</p>
+        <div class="mt-2 px-2 py-0.5 rounded text-xs font-mono" style="background:rgba(139,92,246,0.12);color:#8B5CF6;">TRIGGER</div>
+      </div>
+
+      <!-- Step 2: Validate -->
+      <div class="pipeline-step" style="margin-left:8px;">
+        <div class="relative w-full flex justify-center">
+          <div class="pipeline-icon-wrap" style="background:rgba(59,130,246,0.2);border:2px solid rgba(59,130,246,0.5);box-shadow:0 0 20px rgba(59,130,246,0.2);">✓</div>
+          <div style="position:absolute;top:30px;left:calc(50% + 30px);right:0;height:2px;background:linear-gradient(90deg,rgba(59,130,246,0.8),rgba(59,130,246,0.2));z-index:0;">
+            <div style="position:absolute;right:-1px;top:-5px;border-left:10px solid rgba(59,130,246,0.7);border-top:6px solid transparent;border-bottom:6px solid transparent;"></div>
+          </div>
+        </div>
+        <p class="text-xs font-bold mt-1 px-2" style="color:#93C5FD;">Data Validation</p>
+        <p class="text-xs mt-1 px-2" style="color:#6B7280;">Check fields,<br/>format email</p>
+        <div class="mt-2 px-2 py-0.5 rounded text-xs font-mono" style="background:rgba(59,130,246,0.12);color:#60A5FA;">VALIDATE</div>
+      </div>
+
+      <!-- Step 3: Route -->
+      <div class="pipeline-step" style="margin-left:8px;">
+        <div class="relative w-full flex justify-center">
+          <div class="pipeline-icon-wrap" style="background:rgba(168,85,247,0.2);border:2px solid rgba(168,85,247,0.5);box-shadow:0 0 20px rgba(168,85,247,0.2);">↔</div>
+          <div style="position:absolute;top:30px;left:calc(50% + 30px);right:0;height:2px;background:linear-gradient(90deg,rgba(168,85,247,0.8),rgba(168,85,247,0.2));z-index:0;">
+            <div style="position:absolute;right:-1px;top:-5px;border-left:10px solid rgba(168,85,247,0.7);border-top:6px solid transparent;border-bottom:6px solid transparent;"></div>
+          </div>
+        </div>
+        <p class="text-xs font-bold mt-1 px-2" style="color:#D8B4FE;">Conditional Router</p>
+        <p class="text-xs mt-1 px-2" style="color:#6B7280;">Dental / Medical<br/>/ Other</p>
+        <div class="mt-2 px-2 py-0.5 rounded text-xs font-mono" style="background:rgba(168,85,247,0.12);color:#A78BFA;">ROUTE</div>
+      </div>
+
+      <!-- Step 4: CRM -->
+      <div class="pipeline-step" style="margin-left:8px;">
+        <div class="relative w-full flex justify-center">
+          <div class="pipeline-icon-wrap" style="background:rgba(34,197,94,0.2);border:2px solid rgba(34,197,94,0.5);box-shadow:0 0 20px rgba(34,197,94,0.2);">🗃</div>
+          <div style="position:absolute;top:30px;left:calc(50% + 30px);right:0;height:2px;background:linear-gradient(90deg,rgba(34,197,94,0.8),rgba(34,197,94,0.2));z-index:0;">
+            <div style="position:absolute;right:-1px;top:-5px;border-left:10px solid rgba(34,197,94,0.7);border-top:6px solid transparent;border-bottom:6px solid transparent;"></div>
+          </div>
+        </div>
+        <p class="text-xs font-bold mt-1 px-2" style="color:#86EFAC;">CRM Sync</p>
+        <p class="text-xs mt-1 px-2" style="color:#6B7280;">Create/update<br/>contact record</p>
+        <div class="mt-2 px-2 py-0.5 rounded text-xs font-mono" style="background:rgba(34,197,94,0.12);color:#4ADE80;">CRM</div>
+      </div>
+
+      <!-- Step 5: Notify -->
+      <div class="pipeline-step" style="margin-left:8px;">
+        <div class="relative w-full flex justify-center">
+          <div class="pipeline-icon-wrap" style="background:rgba(249,115,22,0.2);border:2px solid rgba(249,115,22,0.5);box-shadow:0 0 20px rgba(249,115,22,0.2);">🔔</div>
+          <div style="position:absolute;top:30px;left:calc(50% + 30px);right:0;height:2px;background:linear-gradient(90deg,rgba(249,115,22,0.8),rgba(249,115,22,0.2));z-index:0;">
+            <div style="position:absolute;right:-1px;top:-5px;border-left:10px solid rgba(249,115,22,0.7);border-top:6px solid transparent;border-bottom:6px solid transparent;"></div>
+          </div>
+        </div>
+        <p class="text-xs font-bold mt-1 px-2" style="color:#FDBA74;">Notify Team</p>
+        <p class="text-xs mt-1 px-2" style="color:#6B7280;">Slack + Email<br/>alert sent</p>
+        <div class="mt-2 px-2 py-0.5 rounded text-xs font-mono" style="background:rgba(249,115,22,0.12);color:#FB923C;">NOTIFY</div>
+      </div>
+
+      <!-- Step 6: Complete -->
+      <div class="pipeline-step" style="margin-left:8px;">
+        <div class="relative w-full flex justify-center">
+          <div class="pipeline-icon-wrap" style="background:rgba(34,197,94,0.3);border:2px solid rgba(34,197,94,0.7);box-shadow:0 0 28px rgba(34,197,94,0.3);">✅</div>
+        </div>
+        <p class="text-xs font-bold mt-1 px-2" style="color:#4ADE80;">Automation Complete</p>
+        <p class="text-xs mt-1 px-2" style="color:#6B7280;">Inquiry queued<br/>for follow-up</p>
+        <div class="mt-2 px-2 py-0.5 rounded text-xs font-mono" style="background:rgba(34,197,94,0.2);color:#4ADE80;">DONE</div>
+      </div>
+
+    </div>
+
+    <!-- VERTICAL (Mobile) -->
+    <div class="pipeline-vertical flex-col gap-4" style="display:none;">
+      <!-- Step 1 -->
+      <div class="pipeline-vertical-step">
+        <div class="pipeline-icon-wrap flex-shrink-0" style="background:rgba(139,92,246,0.25);border:2px solid rgba(139,92,246,0.6);box-shadow:0 0 16px rgba(139,92,246,0.3);">⚡</div>
+        <div class="pt-2">
+          <p class="text-sm font-bold" style="color:#C4B5FD;">Webhook Trigger</p>
+          <p class="text-xs" style="color:#6B7280;">Form submission received</p>
+          <span class="text-xs font-mono" style="color:#8B5CF6;">TRIGGER</span>
+        </div>
+      </div>
+      <!-- Step 2 -->
+      <div class="pipeline-vertical-step">
+        <div class="pipeline-icon-wrap flex-shrink-0" style="background:rgba(59,130,246,0.2);border:2px solid rgba(59,130,246,0.5);">✓</div>
+        <div class="pt-2">
+          <p class="text-sm font-bold" style="color:#93C5FD;">Data Validation</p>
+          <p class="text-xs" style="color:#6B7280;">Check required fields, format email</p>
+          <span class="text-xs font-mono" style="color:#60A5FA;">VALIDATE</span>
+        </div>
+      </div>
+      <!-- Step 3 -->
+      <div class="pipeline-vertical-step">
+        <div class="pipeline-icon-wrap flex-shrink-0" style="background:rgba(168,85,247,0.2);border:2px solid rgba(168,85,247,0.5);">↔</div>
+        <div class="pt-2">
+          <p class="text-sm font-bold" style="color:#D8B4FE;">Conditional Router</p>
+          <p class="text-xs" style="color:#6B7280;">Dental vs Medical vs Other</p>
+          <span class="text-xs font-mono" style="color:#A78BFA;">ROUTE</span>
+        </div>
+      </div>
+      <!-- Step 4 -->
+      <div class="pipeline-vertical-step">
+        <div class="pipeline-icon-wrap flex-shrink-0" style="background:rgba(34,197,94,0.2);border:2px solid rgba(34,197,94,0.5);">🗃</div>
+        <div class="pt-2">
+          <p class="text-sm font-bold" style="color:#86EFAC;">CRM Sync</p>
+          <p class="text-xs" style="color:#6B7280;">Create/update contact record</p>
+          <span class="text-xs font-mono" style="color:#4ADE80;">CRM</span>
+        </div>
+      </div>
+      <!-- Step 5 -->
+      <div class="pipeline-vertical-step">
+        <div class="pipeline-icon-wrap flex-shrink-0" style="background:rgba(249,115,22,0.2);border:2px solid rgba(249,115,22,0.5);">🔔</div>
+        <div class="pt-2">
+          <p class="text-sm font-bold" style="color:#FDBA74;">Notify Team</p>
+          <p class="text-xs" style="color:#6B7280;">Slack + Email alert sent</p>
+          <span class="text-xs font-mono" style="color:#FB923C;">NOTIFY</span>
+        </div>
+      </div>
+      <!-- Step 6 -->
+      <div class="pipeline-vertical-step">
+        <div class="pipeline-icon-wrap flex-shrink-0" style="background:rgba(34,197,94,0.3);border:2px solid rgba(34,197,94,0.7);">✅</div>
+        <div class="pt-2">
+          <p class="text-sm font-bold" style="color:#4ADE80;">Automation Complete</p>
+          <p class="text-xs" style="color:#6B7280;">Inquiry queued for follow-up</p>
+          <span class="text-xs font-mono" style="color:#4ADE80;">DONE</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Two-column detail cards -->
+  <div class="grid md:grid-cols-2 gap-6 mb-6">
+
+    <!-- Automation Logic -->
+    <div class="glass-dark rounded-2xl p-6">
+      <h3 class="text-sm font-bold mb-4 tracking-wide" style="color:#93C5FD;">Automation Logic</h3>
+      <ul class="space-y-3 text-sm" style="color:#9CA3AF;">
+        <li class="flex items-start gap-2"><span style="color:#8B5CF6;">01.</span> Webhook receives form payload from patient inquiry page</li>
+        <li class="flex items-start gap-2"><span style="color:#8B5CF6;">02.</span> Validates required fields and normalises email format</li>
+        <li class="flex items-start gap-2"><span style="color:#8B5CF6;">03.</span> Routes based on inquiry type: dental, medical, or general</li>
+        <li class="flex items-start gap-2"><span style="color:#8B5CF6;">04.</span> Creates or updates matching CRM contact record via REST API</li>
+        <li class="flex items-start gap-2"><span style="color:#8B5CF6;">05.</span> Dispatches Slack message to relevant channel + sends email alert</li>
+        <li class="flex items-start gap-2"><span style="color:#8B5CF6;">06.</span> Marks inquiry as queued; triggers follow-up reminder workflow</li>
+      </ul>
+    </div>
+
+    <!-- Error Handling -->
+    <div class="glass-dark rounded-2xl p-6">
+      <h3 class="text-sm font-bold mb-4 tracking-wide" style="color:#4ADE80;">Error Handling</h3>
+      <ul class="space-y-3 text-sm">
+        <li class="flex items-start gap-2.5" style="color:#D1FAE5;">
+          <span class="text-green-400 flex-shrink-0">✓</span> Failed webhooks retry automatically 3×
+        </li>
+        <li class="flex items-start gap-2.5" style="color:#D1FAE5;">
+          <span class="text-green-400 flex-shrink-0">✓</span> Invalid email flagged for manual review
+        </li>
+        <li class="flex items-start gap-2.5" style="color:#D1FAE5;">
+          <span class="text-green-400 flex-shrink-0">✓</span> CRM sync errors logged to Slack alert channel
+        </li>
+        <li class="flex items-start gap-2.5" style="color:#D1FAE5;">
+          <span class="text-green-400 flex-shrink-0">✓</span> Full audit trail maintained per execution
+        </li>
+        <li class="flex items-start gap-2.5" style="color:#D1FAE5;">
+          <span class="text-green-400 flex-shrink-0">✓</span> Routing fallback for unrecognised inquiry types
+        </li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- Tech Stack -->
+  <div class="flex flex-wrap items-center gap-2">
+    <span class="text-xs font-mono mr-2" style="color:#6B7280;">STACK:</span>
+    <span class="tech-pill">n8n</span>
+    <span class="tech-pill">Webhooks</span>
+    <span class="tech-pill">REST API</span>
+    <span class="tech-pill">Slack</span>
+    <span class="tech-pill">Email</span>
+    <span class="tech-pill">CRM</span>
+  </div>
+
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     SECTION DIVIDER
+═══════════════════════════════════════════════════════════════ -->
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-28">
+  <div class="h-px" style="background:linear-gradient(90deg,transparent,rgba(139,92,246,0.4),transparent);"></div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     PROJECT 03 — MAKE.COM AUTOMATION
+═══════════════════════════════════════════════════════════════ -->
+<section id="project-03" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-28">
+
+  <!-- Section Header -->
+  <div class="flex flex-wrap items-center gap-4 mb-6">
+    <div class="section-pill">Project 03</div>
+    <h2 class="text-3xl sm:text-4xl font-black gradient-text">Connected Operations Automation</h2>
+    <span class="project-badge" style="background:rgba(249,115,22,0.12);border-color:rgba(249,115,22,0.3);color:#FDBA74;">Make.com</span>
+  </div>
+
+  <p class="text-base mb-12 max-w-3xl leading-relaxed" style="color:#9CA3AF;">
+    A Make.com scenario connecting multiple business tools into one event-triggered pipeline. When a customer submits a contact form, the scenario automatically processes the data across the connected applications. The demo is set up for a clinic front desk, but the same pattern fits any business that takes inquiries online.
+  </p>
+
+  <!-- Scenario Flow Visual -->
+  <div class="glass-dark rounded-2xl p-8 mb-8">
+    <h3 class="text-sm font-mono font-semibold mb-8 tracking-widest" style="color:#FB923C;">// SCENARIO PIPELINE</h3>
+
+    <!-- HORIZONTAL -->
+    <div class="pipeline-horizontal flex items-start gap-0 relative overflow-x-auto pb-4">
+
+      <!-- Trigger -->
+      <div class="pipeline-step">
+        <div class="relative w-full flex justify-center">
+          <div class="pipeline-icon-wrap" style="background:rgba(249,115,22,0.25);border:2px solid rgba(249,115,22,0.6);box-shadow:0 0 20px rgba(249,115,22,0.25);">📋</div>
+          <div style="position:absolute;top:30px;left:calc(50% + 30px);right:0;height:2px;background:linear-gradient(90deg,rgba(249,115,22,0.8),rgba(249,115,22,0.2));z-index:0;">
+            <div style="position:absolute;right:-1px;top:-5px;border-left:10px solid rgba(249,115,22,0.7);border-top:6px solid transparent;border-bottom:6px solid transparent;"></div>
+          </div>
+        </div>
+        <p class="text-xs font-bold mt-1 px-1" style="color:#FDBA74;">Form Trigger</p>
+        <p class="text-xs mt-1 px-1" style="color:#6B7280;">Typeform /<br/>Google Forms</p>
+        <div class="mt-2 px-2 py-0.5 rounded text-xs font-mono" style="background:rgba(249,115,22,0.12);color:#FB923C;">TRIGGER</div>
+      </div>
+
+      <!-- Module 1: Data Parser -->
+      <div class="pipeline-step" style="margin-left:8px;">
+        <div class="relative w-full flex justify-center">
+          <div class="pipeline-icon-wrap" style="background:rgba(139,92,246,0.2);border:2px solid rgba(139,92,246,0.5);box-shadow:0 0 16px rgba(139,92,246,0.2);">⚙️</div>
+          <div style="position:absolute;top:30px;left:calc(50% + 30px);right:0;height:2px;background:linear-gradient(90deg,rgba(139,92,246,0.8),rgba(139,92,246,0.2));z-index:0;">
+            <div style="position:absolute;right:-1px;top:-5px;border-left:10px solid rgba(139,92,246,0.7);border-top:6px solid transparent;border-bottom:6px solid transparent;"></div>
+          </div>
+        </div>
+        <p class="text-xs font-bold mt-1 px-1" style="color:#C4B5FD;">Data Parser</p>
+        <p class="text-xs mt-1 px-1" style="color:#6B7280;">Extract name,<br/>email, type</p>
+        <div class="mt-2 px-2 py-0.5 rounded text-xs font-mono" style="background:rgba(139,92,246,0.12);color:#8B5CF6;">M1</div>
+      </div>
+
+      <!-- Module 2: Google Sheets -->
+      <div class="pipeline-step" style="margin-left:8px;">
+        <div class="relative w-full flex justify-center">
+          <div class="pipeline-icon-wrap" style="background:rgba(34,197,94,0.2);border:2px solid rgba(34,197,94,0.5);box-shadow:0 0 16px rgba(34,197,94,0.2);">📊</div>
+          <div style="position:absolute;top:30px;left:calc(50% + 30px);right:0;height:2px;background:linear-gradient(90deg,rgba(34,197,94,0.8),rgba(34,197,94,0.2));z-index:0;">
+            <div style="position:absolute;right:-1px;top:-5px;border-left:10px solid rgba(34,197,94,0.7);border-top:6px solid transparent;border-bottom:6px solid transparent;"></div>
+          </div>
+        </div>
+        <p class="text-xs font-bold mt-1 px-1" style="color:#86EFAC;">Google Sheets</p>
+        <p class="text-xs mt-1 px-1" style="color:#6B7280;">Log entry to<br/>database</p>
+        <div class="mt-2 px-2 py-0.5 rounded text-xs font-mono" style="background:rgba(34,197,94,0.12);color:#4ADE80;">M2</div>
+      </div>
+
+      <!-- Module 3: Gmail -->
+      <div class="pipeline-step" style="margin-left:8px;">
+        <div class="relative w-full flex justify-center">
+          <div class="pipeline-icon-wrap" style="background:rgba(239,68,68,0.2);border:2px solid rgba(239,68,68,0.5);box-shadow:0 0 16px rgba(239,68,68,0.2);">✉️</div>
+          <div style="position:absolute;top:30px;left:calc(50% + 30px);right:0;height:2px;background:linear-gradient(90deg,rgba(239,68,68,0.8),rgba(239,68,68,0.2));z-index:0;">
+            <div style="position:absolute;right:-1px;top:-5px;border-left:10px solid rgba(239,68,68,0.7);border-top:6px solid transparent;border-bottom:6px solid transparent;"></div>
+          </div>
+        </div>
+        <p class="text-xs font-bold mt-1 px-1" style="color:#FCA5A5;">Gmail</p>
+        <p class="text-xs mt-1 px-1" style="color:#6B7280;">Send confirm<br/>to patient</p>
+        <div class="mt-2 px-2 py-0.5 rounded text-xs font-mono" style="background:rgba(239,68,68,0.12);color:#F87171;">M3</div>
+      </div>
+
+      <!-- Module 4: Slack -->
+      <div class="pipeline-step" style="margin-left:8px;">
+        <div class="relative w-full flex justify-center">
+          <div class="pipeline-icon-wrap" style="background:rgba(96,165,250,0.2);border:2px solid rgba(96,165,250,0.5);box-shadow:0 0 16px rgba(96,165,250,0.2);">💬</div>
+          <div style="position:absolute;top:30px;left:calc(50% + 30px);right:0;height:2px;background:linear-gradient(90deg,rgba(96,165,250,0.8),rgba(96,165,250,0.2));z-index:0;">
+            <div style="position:absolute;right:-1px;top:-5px;border-left:10px solid rgba(96,165,250,0.7);border-top:6px solid transparent;border-bottom:6px solid transparent;"></div>
+          </div>
+        </div>
+        <p class="text-xs font-bold mt-1 px-1" style="color:#93C5FD;">Slack</p>
+        <p class="text-xs mt-1 px-1" style="color:#6B7280;">Notify front<br/>desk team</p>
+        <div class="mt-2 px-2 py-0.5 rounded text-xs font-mono" style="background:rgba(96,165,250,0.12);color:#60A5FA;">M4</div>
+      </div>
+
+      <!-- Module 5: Conditional -->
+      <div class="pipeline-step" style="margin-left:8px;">
+        <div class="relative w-full flex justify-center">
+          <div class="pipeline-icon-wrap" style="background:rgba(52,211,153,0.2);border:2px solid rgba(52,211,153,0.6);box-shadow:0 0 20px rgba(52,211,153,0.25);">📲</div>
+        </div>
+        <p class="text-xs font-bold mt-1 px-1" style="color:#6EE7B7;">If 'Urgent'</p>
+        <p class="text-xs mt-1 px-1" style="color:#6B7280;">WhatsApp<br/>alert sent</p>
+        <div class="mt-2 px-2 py-0.5 rounded text-xs font-mono" style="background:rgba(52,211,153,0.15);color:#34D399;">M5</div>
+      </div>
+
+    </div>
+
+    <!-- VERTICAL (Mobile) -->
+    <div class="pipeline-vertical flex-col gap-4" style="display:none;">
+      <div class="pipeline-vertical-step">
+        <div class="pipeline-icon-wrap flex-shrink-0" style="background:rgba(249,115,22,0.25);border:2px solid rgba(249,115,22,0.6);">📋</div>
+        <div class="pt-2"><p class="text-sm font-bold" style="color:#FDBA74;">Form Trigger</p><p class="text-xs" style="color:#6B7280;">Typeform / Google Forms</p></div>
+      </div>
+      <div class="pipeline-vertical-step">
+        <div class="pipeline-icon-wrap flex-shrink-0" style="background:rgba(139,92,246,0.2);border:2px solid rgba(139,92,246,0.5);">⚙️</div>
+        <div class="pt-2"><p class="text-sm font-bold" style="color:#C4B5FD;">Data Parser</p><p class="text-xs" style="color:#6B7280;">Extract patient name, email, inquiry type</p></div>
+      </div>
+      <div class="pipeline-vertical-step">
+        <div class="pipeline-icon-wrap flex-shrink-0" style="background:rgba(34,197,94,0.2);border:2px solid rgba(34,197,94,0.5);">📊</div>
+        <div class="pt-2"><p class="text-sm font-bold" style="color:#86EFAC;">Google Sheets</p><p class="text-xs" style="color:#6B7280;">Log entry to practice database</p></div>
+      </div>
+      <div class="pipeline-vertical-step">
+        <div class="pipeline-icon-wrap flex-shrink-0" style="background:rgba(239,68,68,0.2);border:2px solid rgba(239,68,68,0.5);">✉️</div>
+        <div class="pt-2"><p class="text-sm font-bold" style="color:#FCA5A5;">Gmail</p><p class="text-xs" style="color:#6B7280;">Send confirmation to patient</p></div>
+      </div>
+      <div class="pipeline-vertical-step">
+        <div class="pipeline-icon-wrap flex-shrink-0" style="background:rgba(96,165,250,0.2);border:2px solid rgba(96,165,250,0.5);">💬</div>
+        <div class="pt-2"><p class="text-sm font-bold" style="color:#93C5FD;">Slack</p><p class="text-xs" style="color:#6B7280;">Notify front desk team</p></div>
+      </div>
+      <div class="pipeline-vertical-step">
+        <div class="pipeline-icon-wrap flex-shrink-0" style="background:rgba(52,211,153,0.2);border:2px solid rgba(52,211,153,0.6);">📲</div>
+        <div class="pt-2"><p class="text-sm font-bold" style="color:#6EE7B7;">If 'Urgent'</p><p class="text-xs" style="color:#6B7280;">Trigger WhatsApp alert</p></div>
+      </div>
+    </div>
+
+    <!-- Connected App Badges -->
+    <div class="mt-8 pt-6 border-t" style="border-color:rgba(139,92,246,0.12);">
+      <p class="text-xs font-mono mb-3 tracking-widest" style="color:#6B7280;">CONNECTED APPS</p>
+      <div class="flex flex-wrap gap-2">
+        <span class="app-badge">Typeform</span>
+        <span class="app-badge">Google Forms</span>
+        <span class="app-badge">Google Sheets</span>
+        <span class="app-badge">Gmail</span>
+        <span class="app-badge">Slack</span>
+        <span class="app-badge">WhatsApp Business</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Capabilities List -->
+  <div class="glass-dark rounded-2xl p-6 mb-6">
+    <h3 class="text-sm font-bold mb-4 tracking-wide" style="color:#FDBA74;">What This Scenario Handles</h3>
+    <div class="grid sm:grid-cols-2 gap-x-8 gap-y-2.5">
+      <div class="flex items-start gap-2.5 text-sm" style="color:#D1FAE5;"><span class="text-green-400 flex-shrink-0 mt-0.5">✓</span> Automatic data parsing from form submissions</div>
+      <div class="flex items-start gap-2.5 text-sm" style="color:#D1FAE5;"><span class="text-green-400 flex-shrink-0 mt-0.5">✓</span> Centralised logging to Google Sheets database</div>
+      <div class="flex items-start gap-2.5 text-sm" style="color:#D1FAE5;"><span class="text-green-400 flex-shrink-0 mt-0.5">✓</span> Automated patient confirmation emails via Gmail</div>
+      <div class="flex items-start gap-2.5 text-sm" style="color:#D1FAE5;"><span class="text-green-400 flex-shrink-0 mt-0.5">✓</span> Real-time Slack notification to front desk team</div>
+      <div class="flex items-start gap-2.5 text-sm" style="color:#D1FAE5;"><span class="text-green-400 flex-shrink-0 mt-0.5">✓</span> Conditional logic for urgent inquiry escalation</div>
+      <div class="flex items-start gap-2.5 text-sm" style="color:#D1FAE5;"><span class="text-green-400 flex-shrink-0 mt-0.5">✓</span> WhatsApp Business alert for urgent cases</div>
+      <div class="flex items-start gap-2.5 text-sm" style="color:#D1FAE5;"><span class="text-green-400 flex-shrink-0 mt-0.5">✓</span> Zero manual steps from submission to notification</div>
+      <div class="flex items-start gap-2.5 text-sm" style="color:#D1FAE5;"><span class="text-green-400 flex-shrink-0 mt-0.5">✓</span> Multi-app orchestration in a single scenario</div>
+    </div>
+  </div>
+
+  <!-- Tech Stack -->
+  <div class="flex flex-wrap items-center gap-2">
+    <span class="text-xs font-mono mr-2" style="color:#6B7280;">STACK:</span>
+    <span class="tech-pill">Make.com</span>
+    <span class="tech-pill">Typeform</span>
+    <span class="tech-pill">Google Sheets</span>
+    <span class="tech-pill">Gmail API</span>
+    <span class="tech-pill">Slack</span>
+    <span class="tech-pill">WhatsApp Business</span>
+  </div>
+
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     CAPABILITIES COMPARISON TABLE
+═══════════════════════════════════════════════════════════════ -->
+<section id="capabilities" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-28">
+
+  <div class="flex flex-wrap items-center gap-4 mb-10">
+    <div class="section-pill">Overview</div>
+    <h2 class="text-3xl sm:text-4xl font-black gradient-text">Capability Overview</h2>
+  </div>
+
+  <div class="glass-dark rounded-2xl overflow-hidden glow-violet">
+    <div class="overflow-x-auto">
+      <table class="cap-table w-full border-collapse">
+        <thead>
+          <tr>
+            <th class="text-left" style="padding:16px 20px;background:rgba(139,92,246,0.28);color:#DDD6FE;font-size:0.82rem;letter-spacing:0.06em;border-bottom:1px solid rgba(139,92,246,0.2);">CAPABILITY</th>
+            <th class="text-center" style="padding:16px 20px;background:rgba(139,92,246,0.28);color:#DDD6FE;font-size:0.82rem;letter-spacing:0.06em;border-bottom:1px solid rgba(139,92,246,0.2);">Retell AI</th>
+            <th class="text-center" style="padding:16px 20px;background:rgba(139,92,246,0.28);color:#DDD6FE;font-size:0.82rem;letter-spacing:0.06em;border-bottom:1px solid rgba(139,92,246,0.2);">n8n</th>
+            <th class="text-center" style="padding:16px 20px;background:rgba(139,92,246,0.28);color:#DDD6FE;font-size:0.82rem;letter-spacing:0.06em;border-bottom:1px solid rgba(139,92,246,0.2);">Make.com</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="padding:14px 20px;color:#DDD6FE;font-size:0.875rem;border-bottom:1px solid rgba(139,92,246,0.08);">Inbound Call Handling</td>
+            <td class="text-center cell-yes" style="padding:14px 20px;border-bottom:1px solid rgba(139,92,246,0.08);">✅</td>
+            <td class="text-center cell-no"  style="padding:14px 20px;border-bottom:1px solid rgba(139,92,246,0.08);">❌</td>
+            <td class="text-center cell-no"  style="padding:14px 20px;border-bottom:1px solid rgba(139,92,246,0.08);">❌</td>
+          </tr>
+          <tr style="background:rgba(139,92,246,0.03);">
+            <td style="padding:14px 20px;color:#DDD6FE;font-size:0.875rem;border-bottom:1px solid rgba(139,92,246,0.08);">Outbound Calling</td>
+            <td class="text-center cell-yes" style="padding:14px 20px;border-bottom:1px solid rgba(139,92,246,0.08);">✅</td>
+            <td class="text-center cell-no"  style="padding:14px 20px;border-bottom:1px solid rgba(139,92,246,0.08);">❌</td>
+            <td class="text-center cell-no"  style="padding:14px 20px;border-bottom:1px solid rgba(139,92,246,0.08);">❌</td>
+          </tr>
+          <tr>
+            <td style="padding:14px 20px;color:#DDD6FE;font-size:0.875rem;border-bottom:1px solid rgba(139,92,246,0.08);">Appointment Booking via Voice</td>
+            <td class="text-center" style="padding:14px 20px;border-bottom:1px solid rgba(139,92,246,0.08);background:rgba(245,158,11,0.06);">
+              <span class="text-xs font-semibold px-2 py-0.5 rounded" style="color:#FBBF24;background:rgba(245,158,11,0.12);border:1px solid rgba(245,158,11,0.25);">⚠ Roadmap</span>
+            </td>
+            <td class="text-center cell-no"  style="padding:14px 20px;border-bottom:1px solid rgba(139,92,246,0.08);">❌</td>
+            <td class="text-center cell-no"  style="padding:14px 20px;border-bottom:1px solid rgba(139,92,246,0.08);">❌</td>
+          </tr>
+          <tr style="background:rgba(139,92,246,0.03);">
+            <td style="padding:14px 20px;color:#DDD6FE;font-size:0.875rem;border-bottom:1px solid rgba(139,92,246,0.08);">Multi-step Workflow Automation</td>
+            <td class="text-center cell-no"  style="padding:14px 20px;border-bottom:1px solid rgba(139,92,246,0.08);">❌</td>
+            <td class="text-center cell-yes" style="padding:14px 20px;border-bottom:1px solid rgba(139,92,246,0.08);">✅</td>
+            <td class="text-center cell-yes" style="padding:14px 20px;border-bottom:1px solid rgba(139,92,246,0.08);">✅</td>
+          </tr>
+          <tr>
+            <td style="padding:14px 20px;color:#DDD6FE;font-size:0.875rem;border-bottom:1px solid rgba(139,92,246,0.08);">CRM Integration</td>
+            <td class="text-center cell-no"  style="padding:14px 20px;border-bottom:1px solid rgba(139,92,246,0.08);">❌</td>
+            <td class="text-center cell-yes" style="padding:14px 20px;border-bottom:1px solid rgba(139,92,246,0.08);">✅</td>
+            <td class="text-center cell-yes" style="padding:14px 20px;border-bottom:1px solid rgba(139,92,246,0.08);">✅</td>
+          </tr>
+          <tr style="background:rgba(139,92,246,0.03);">
+            <td style="padding:14px 20px;color:#DDD6FE;font-size:0.875rem;border-bottom:1px solid rgba(139,92,246,0.08);">Form Submission Processing</td>
+            <td class="text-center cell-no"  style="padding:14px 20px;border-bottom:1px solid rgba(139,92,246,0.08);">❌</td>
+            <td class="text-center cell-yes" style="padding:14px 20px;border-bottom:1px solid rgba(139,92,246,0.08);">✅</td>
+            <td class="text-center cell-yes" style="padding:14px 20px;border-bottom:1px solid rgba(139,92,246,0.08);">✅</td>
+          </tr>
+          <tr>
+            <td style="padding:14px 20px;color:#DDD6FE;font-size:0.875rem;border-bottom:1px solid rgba(139,92,246,0.08);">Email Notifications</td>
+            <td class="text-center cell-no"  style="padding:14px 20px;border-bottom:1px solid rgba(139,92,246,0.08);">❌</td>
+            <td class="text-center cell-yes" style="padding:14px 20px;border-bottom:1px solid rgba(139,92,246,0.08);">✅</td>
+            <td class="text-center cell-yes" style="padding:14px 20px;border-bottom:1px solid rgba(139,92,246,0.08);">✅</td>
+          </tr>
+          <tr style="background:rgba(139,92,246,0.03);">
+            <td style="padding:14px 20px;color:#DDD6FE;font-size:0.875rem;border-bottom:1px solid rgba(139,92,246,0.08);">Slack Notifications</td>
+            <td class="text-center cell-no"  style="padding:14px 20px;border-bottom:1px solid rgba(139,92,246,0.08);">❌</td>
+            <td class="text-center cell-yes" style="padding:14px 20px;border-bottom:1px solid rgba(139,92,246,0.08);">✅</td>
+            <td class="text-center cell-yes" style="padding:14px 20px;border-bottom:1px solid rgba(139,92,246,0.08);">✅</td>
+          </tr>
+          <tr>
+            <td style="padding:14px 20px;color:#DDD6FE;font-size:0.875rem;border-bottom:1px solid rgba(139,92,246,0.08);">Multi-App Scenario</td>
+            <td class="text-center cell-no"  style="padding:14px 20px;border-bottom:1px solid rgba(139,92,246,0.08);">❌</td>
+            <td class="text-center"          style="padding:14px 20px;border-bottom:1px solid rgba(139,92,246,0.08);background:rgba(245,158,11,0.04);">
+              <span class="text-xs cell-ltd">⚠ Limited</span>
+            </td>
+            <td class="text-center cell-yes" style="padding:14px 20px;border-bottom:1px solid rgba(139,92,246,0.08);">✅</td>
+          </tr>
+          <tr style="background:rgba(139,92,246,0.03);">
+            <td style="padding:14px 20px;color:#DDD6FE;font-size:0.875rem;">Conditional Logic</td>
+            <td class="text-center cell-no"  style="padding:14px 20px;">❌</td>
+            <td class="text-center cell-yes" style="padding:14px 20px;">✅</td>
+            <td class="text-center cell-yes" style="padding:14px 20px;">✅</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Table Legend -->
+    <div class="px-6 py-4 border-t flex flex-wrap gap-6" style="border-color:rgba(139,92,246,0.12);">
+      <div class="flex items-center gap-2 text-xs" style="color:#9CA3AF;">
+        <span class="cell-yes text-base">✅</span> Confirmed capability
+      </div>
+      <div class="flex items-center gap-2 text-xs" style="color:#9CA3AF;">
+        <span class="cell-no text-base">❌</span> Not applicable
+      </div>
+      <div class="flex items-center gap-2 text-xs" style="color:#9CA3AF;">
+        <span class="cell-road text-base">⚠</span> Roadmap / unconfirmed
+      </div>
+    </div>
+  </div>
+
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     RESPONSIBLE AI DISCLOSURE
+═══════════════════════════════════════════════════════════════ -->
+<section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-28">
+  <div class="glass-dark rounded-2xl p-8 glow-violet" style="border-color:rgba(139,92,246,0.25);">
+
+    <div class="flex items-start gap-4 mb-6">
+      <div class="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 text-xl" style="background:rgba(139,92,246,0.18);border:1px solid rgba(139,92,246,0.35);">⚠</div>
+      <div>
+        <h2 class="text-2xl font-black gradient-text mb-1">Transparency &amp; Scope</h2>
+        <p class="text-sm" style="color:#6B7280;">Responsible AI Disclosure</p>
+      </div>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-8">
+      <div>
+        <p class="text-sm leading-7 mb-4" style="color:#9CA3AF;">
+          All projects listed represent development work and demonstrated capabilities in AI automation. These are administrative-scope automation systems only. No clinical advice systems, diagnostic tools, or patient data processing systems are included.
+        </p>
+        <p class="text-sm leading-7" style="color:#9CA3AF;">
+          Human escalation is built into every implementation, in every industry. The AI handles administrative tasks only and always has a clear pathway to transfer to a human operator.
+        </p>
+      </div>
+      <div class="space-y-3">
+        <div class="flex items-start gap-2.5 text-sm" style="color:#D1FAE5;">
+          <span class="text-green-400 flex-shrink-0 mt-0.5">✓</span> Administrative scope only — no clinical systems
+        </div>
+        <div class="flex items-start gap-2.5 text-sm" style="color:#D1FAE5;">
+          <span class="text-green-400 flex-shrink-0 mt-0.5">✓</span> Human escalation pathway in all voice agents
+        </div>
+        <div class="flex items-start gap-2.5 text-sm" style="color:#D1FAE5;">
+          <span class="text-green-400 flex-shrink-0 mt-0.5">✓</span> No fabricated performance metrics or testimonials
+        </div>
+        <div class="flex items-start gap-2.5 text-sm" style="color:#D1FAE5;">
+          <span class="text-green-400 flex-shrink-0 mt-0.5">✓</span> Roadmap limitations clearly disclosed
+        </div>
+        <div class="flex items-start gap-2.5 text-sm" style="color:#D1FAE5;">
+          <span class="text-green-400 flex-shrink-0 mt-0.5">✓</span> Full audit trail maintained in all automations
+        </div>
+        <div class="flex items-start gap-2.5 text-sm" style="color:#D1FAE5;">
+          <span class="text-green-400 flex-shrink-0 mt-0.5">✓</span> Data minimisation — only the fields each workflow needs
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     CTA SECTION
+═══════════════════════════════════════════════════════════════ -->
+<section class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 mb-28 text-center">
+  <div class="relative overflow-hidden rounded-2xl p-12" style="background:linear-gradient(135deg,rgba(139,92,246,0.14),rgba(9,3,22,0.9));border:1px solid rgba(139,92,246,0.28);">
+    <!-- BG orbs inside CTA -->
+    <div class="absolute" style="width:300px;height:300px;border-radius:50%;background:rgba(139,92,246,0.1);filter:blur(80px);top:-80px;right:-60px;pointer-events:none;"></div>
+    <div class="absolute" style="width:200px;height:200px;border-radius:50%;background:rgba(196,181,253,0.07);filter:blur(60px);bottom:-50px;left:-40px;pointer-events:none;"></div>
+
+    <div class="relative">
+      <div class="inline-flex items-center gap-2 mb-5 px-4 py-1.5 rounded-full" style="background:rgba(139,92,246,0.15);border:1px solid rgba(139,92,246,0.3);">
+        <div class="w-2 h-2 rounded-full pulse-slow" style="background:#8B5CF6;"></div>
+        <span class="text-xs font-mono" style="color:#C4B5FD;">OPEN FOR PROJECTS</span>
+      </div>
+
+      <h2 class="text-3xl sm:text-4xl font-black mb-4 gradient-text">Interested in a Similar Solution?</h2>
+      <p class="text-base mb-8 max-w-xl mx-auto leading-relaxed" style="color:#9CA3AF;">
+        Let's discuss how AI voice agents, chatbots, and workflow automation can support your business operations.
+      </p>
+
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="contact.html" class="btn-primary px-8 py-3.5 rounded-xl font-semibold text-sm inline-flex items-center gap-2">
+          Discuss Your Project
+          <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="services.html" class="btn-outline px-8 py-3.5 rounded-xl font-semibold text-sm">View Services</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     FOOTER
+═══════════════════════════════════════════════════════════════ -->
+<footer class="glass-navbar border-t mt-0" style="border-color:rgba(139,92,246,0.18);">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+
+    <div class="grid md:grid-cols-3 gap-10 mb-10">
+
+      <!-- Brand -->
+      <div>
+        <div class="flex flex-col leading-tight mb-4">
+          <span class="text-xl font-black" style="color:#F8F7FC;">ILORI MAJEED</span>
+          <span class="text-xs font-mono" style="color:#8B5CF6;letter-spacing:0.12em;">AI × Automation</span>
+        </div>
+        <p class="text-sm leading-relaxed" style="color:#6B7280;">
+          Specialising in AI voice agents, workflow automation, and AI chatbots for real-world business.
+        </p>
+      </div>
+
+      <!-- Links -->
+      <div>
+        <p class="text-xs uppercase tracking-widest font-semibold mb-4" style="color:#8B5CF6;">Navigation</p>
+        <div class="flex flex-col gap-2.5">
+          <a href="index.html"    class="text-sm hover:text-lavender transition-colors" style="color:#6B7280;">Home</a>
+          <a href="services.html" class="text-sm hover:text-lavender transition-colors" style="color:#6B7280;">Services</a>
+          <a href="portfolio.html" class="text-sm font-semibold" style="color:#8B5CF6;">Portfolio</a>
+          <a href="about.html"   class="text-sm hover:text-lavender transition-colors" style="color:#6B7280;">About</a>
+          <a href="contact.html" class="text-sm hover:text-lavender transition-colors" style="color:#6B7280;">Contact</a>
+        </div>
+      </div>
+
+      <!-- Contact + Disclosure -->
+      <div>
+        <p class="text-xs uppercase tracking-widest font-semibold mb-4" style="color:#8B5CF6;">Contact</p>
+        <div class="space-y-2 mb-6">
+          <a href="contact.html" class="text-sm hover:text-lavender transition-colors block" style="color:#6B7280;">Send an Inquiry →</a>
+        </div>
+        <div class="rounded-lg p-4" style="background:rgba(139,92,246,0.07);border:1px solid rgba(139,92,246,0.14);">
+          <p class="text-xs font-semibold mb-1" style="color:#C4B5FD;">Responsible AI</p>
+          <p class="text-xs leading-relaxed" style="color:#6B7280;">Administrative scope only. No clinical systems. Human escalation built in.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Bottom bar -->
+    <div class="border-t pt-6 flex flex-col sm:flex-row items-center justify-between gap-3" style="border-color:rgba(139,92,246,0.12);">
+      <p class="text-xs" style="color:#4B5563;">© 2025 Ilori Majeed. All rights reserved.</p>
+      <p class="text-xs font-mono" style="color:#4B5563;">AI Voice Agents · Automation · Chatbots</p>
+    </div>
+
+  </div>
+</footer>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     INLINE JAVASCRIPT
+═══════════════════════════════════════════════════════════════ -->
+<script>
+  /* ── Hamburger toggle ─────────────────────────────────────── */
+  const hamburgerBtn = document.getElementById('hamburger-btn');
+  const mobileMenu   = document.getElementById('mobile-menu');
+
+  hamburgerBtn.addEventListener('click', () => {
+    hamburgerBtn.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+  });
+
+  /* ── Animated waveform bars ───────────────────────────────── */
+  const waveContainer = document.getElementById('waveform-bars');
+  const BAR_COUNT = 32;
+  const bars = [];
+
+  for (let i = 0; i < BAR_COUNT; i++) {
+    const bar = document.createElement('div');
+    bar.style.cssText = `
+      width: 3px;
+      border-radius: 2px;
+      background: linear-gradient(to top, #8B5CF6, #DDD6FE);
+      flex-shrink: 0;
+      transition: height 0.12s ease;
+    `;
+    bar.style.height = '6px';
+    waveContainer.appendChild(bar);
+    bars.push(bar);
+  }
+
+  function animateWave() {
+    bars.forEach((bar, i) => {
+      const baseHeight = 6;
+      const maxExtra  = 38;
+      const t = Date.now() / 300;
+      const wave = Math.sin(t + i * 0.45) * 0.5 + 0.5;
+      const ripple = Math.sin(t * 1.7 + i * 0.25) * 0.3 + 0.3;
+      const h = baseHeight + (wave * ripple) * maxExtra;
+      bar.style.height = Math.max(4, h) + 'px';
+    });
+    requestAnimationFrame(animateWave);
+  }
+  animateWave();
+
+  /* ── Scroll-reveal with IntersectionObserver ──────────────── */
+  const revealEls = document.querySelectorAll('section, .glass-dark, .disclosure-banner');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity   = '1';
+        entry.target.style.transform = 'translateY(0)';
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.06 });
+
+  revealEls.forEach(el => {
+    el.style.opacity   = '0';
+    el.style.transform = 'translateY(24px)';
+    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    observer.observe(el);
+  });
+
+  /* ── Pipeline step hover highlight ───────────────────────── */
+  document.querySelectorAll('.pipeline-step, .pipeline-vertical-step').forEach(step => {
+    step.addEventListener('mouseenter', () => {
+      step.style.transform = 'translateY(-4px)';
+      step.style.transition = 'transform 0.2s ease';
+    });
+    step.addEventListener('mouseleave', () => {
+      step.style.transform = 'translateY(0)';
+    });
+  });
+</script>
+
+</body>
+</html>
