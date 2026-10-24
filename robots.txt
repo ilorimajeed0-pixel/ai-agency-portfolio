@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# PENDING DOMAIN: once the production domain is confirmed, add a sitemap.xml and this line:
+# Sitemap: https://YOUR-DOMAIN/sitemap.xml
